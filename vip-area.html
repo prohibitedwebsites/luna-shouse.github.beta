@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Área VIP - Casa de Luna</title>
+<style>
+  body {
+    background: #220022;
+    color: #ffb6c1;
+    font-family: 'Georgia', serif;
+    padding: 2rem;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.5;
+  }
+  .logout-btn {
+    background: #ff69b4;
+    color: #33001a;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 3rem;
+    transition: background 0.3s;
+  }
+  .logout-btn:hover {
+    background: #ffb6c1;
+  }
+  .vip-content {
+    background: #33001a;
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px #ffb6c1aa;
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+
+<h1>Bem-vindo(a) ao Clube VIP da Casa de Luna</h1>
+<button class="logout-btn" onclick="logout()">Sair</button>
+
+<section class="vip-content">
+  <h2>Conto Erótico VIP</h2>
+  <p>
+    Sob a luz tênue da lua, Luna desliza pelos corredores da mansão, seu olhar carregado de promessas e desejos ocultos. Cada passo seu ecoa como um segredo revelado, enquanto ela se entrega aos prazeres da noite, onde fantasia e realidade se confundem...
+  </p>
+  <p>
+    Este é apenas um pequeno vislumbre do que nossos membros VIP podem desfrutar. Entre para viver experiências que transcendem o comum.
+  </p>
+</section>
+
+<script>
+  if(sessionStorage.getItem('vipLoggedIn') !== 'true') {
+    alert('Você precisa estar logado para acessar a área VIP.');
+    window.location.href = 'vip-login.html';
+  }
+
+  function logout() {
+    sessionStorage.removeItem('vipLoggedIn');
+    alert('Logout realizado com sucesso!');
+    window.location.href = 'vip-login.html';
+  }
+</script>
+
+</body>
+</html>

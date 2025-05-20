@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login VIP - Casa de Luna</title>
+<style>
+  body {
+    background: #330022;
+    color: #ffb6c1;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+  form {
+    background: #440033;
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ffb6c1aa;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="password"] {
+    width: 260px;
+    padding: 0.6rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  button {
+    width: 100%;
+    padding: 0.7rem;
+    background: #ff69b4;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #33001a;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #ffb6c1;
+  }
+  .error {
+    color: #ff8080;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>Login VIP - Casa de Luna</h1>
+<form id="vipLoginForm">
+  <div class="error" id="errorMsg"></div>
+  <label for="username">Usuário:</label>
+  <input type="text" id="username" name="username" autocomplete="off" required />
+
+  <label for="password">Senha:</label>
+  <input type="password" id="password" name="password" autocomplete="off" required />
+
+  <button type="submit">Entrar</button>
+</form>
+
+<script>
+  const validUser = 'luna';
+  const validPass = 'lua2025';
+
+  const form = document.getElementById('vipLoginForm');
+  const errorMsg = document.getElementById('errorMsg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const user = form.username.value.trim();
+    const pass = form.password.value.trim();
+
+    if(user === validUser && pass === validPass) {
+      sessionStorage.setItem('vipLoggedIn', 'true');
+      window.location.href = 'vip-area.html';
+    } else {
+      errorMsg.textContent = 'Usuário ou senha incorretos.';
+    }
+  });
+</script>
+
+</body>
+</html>
